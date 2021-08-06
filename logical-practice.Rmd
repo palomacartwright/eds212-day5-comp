@@ -1,0 +1,97 @@
+---
+title: "Boolean Practice"
+author: "Paloma Cartwright"
+date: "06/08/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Taking a look at `starwars`
+
+- `include = `: show or hide everything 
+- `echo = `: show or hide code 
+
+```{r}
+#summary of starwars 
+#summary(starwars)
+
+#look at the first few lines 
+head(starwars)
+
+#check out dimensions
+dim(starwars)
+```
+
+```{r, warning = FALSE}
+ggplot(data = starwars, aes(x = height, y = mass)) + 
+  geom_point(aes(color = gender))
+```
+
+## Exploring the Starwars dataset with boolean logic 
+
+#### Find the mean, variance and standard deviation of character height 
+
+```{r}
+print(sw_height_mean <- mean(starwars$height, na.rm = TRUE))
+## Height is found in cm 
+```
+
+```{r}
+print(sw_height_var <- var(starwars$height, na.rm = TRUE))
+# Variance is found in cm squared 
+```
+
+```{r}
+
+print(sw_height_sd <- sd(starwars$height, na.rm = TRUE))
+## standard deviation is found in cm
+```
+
+Mean character height is `r round(sw_height_mean, 1)`cm with a standard deviation of `r round(sw_height_sd, 1)`cm.
+
+
+# Logical Expressions
+### Trying words 
+```{r}
+
+"cat" > "armadillo"
+
+"cat" > "elephant"
+
+"teddy" == "teddy"
+```
+
+### Trying numbers 
+
+```{r}
+10 <= 11
+
+5 >= 4
+
+3 <= 1
+```
+
+### Playing with vectors 
+```{r}
+
+tarantulas <- c(1, 3, 7, 10, 15)
+
+tarantulas > 5
+```
+### Logical Operators 
+
+- `!`
+- `&`
+- `|`
+
+
+```{r}
+3 < 1 | 8 > 2
+
+6 < 10 & 5 < 1
+```
+
